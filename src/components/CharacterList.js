@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import CharacterCard from './CharacterCard.js';
+import styled from "styled-components";
+
+const Grid = styled.div`
+width: 100%;
+display: flex;
+Justify-content: center;
+flex-wrap: wrap;
+`;
 
 export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
@@ -17,12 +25,12 @@ export default function CharacterList() {
   }, []);
 
   return (
-    <section className="character-list">
+    <Grid>
       <div>{characters.map(character => (
         <CharacterCard key={character.id} characters={character} />
       ))}
       </div>
-    </section>
+    </Grid>
   );
 }
 
